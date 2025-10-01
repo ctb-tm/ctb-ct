@@ -15,14 +15,13 @@
       background:rgba(8,8,8,0.90); padding:16px 32px;
       border-radius:8px 8px 0 0; margin-bottom:12px;
     }
-    .header .header-left {flex:0;}
-    .header .header-right {flex:0;}
+    .header-left {flex:0;}
+    .header-right {flex:0;}
     .header h1 { color:white;font-size:1.7em;flex:1; font-family: 'Inter', Arial, sans-serif;font-weight:900;letter-spacing:0.5px;text-align:center;margin:0;}
     .header img { height:56px; }
     nav.menu { background:#e2e8f0;display:flex;justify-content:center; padding:8px 0;border-bottom:1px solid #e2e8f0;margin-bottom:16px;}
     nav.menu a { margin:0 24px; color:#444; text-decoration:none;font-weight:600;transition:color 0.2s;}
-    nav.menu a:hover { color: #26347d; }
-    section, .page {margin-bottom:28px;text-align:center;}
+    nav.menu a:hover { color:#26347d; }
     .white-box, .historico-content, .box-grey02, .logo-box {
       background:#fafafb;border-radius:8px;box-shadow:0 2px 6px -2px rgba(0,0,0,0.06);border:1px solid #e2e8f0; padding:30px 30px 22px; margin: 0 auto 36px auto; max-width:850px; text-align:center;
     }
@@ -30,8 +29,27 @@
     .logo-box img { width:370px; max-width:98vw; margin-bottom:22px; border-radius:12px; background:#ececec; box-shadow:0 2px 24px -8px #1114;}
     .logo-box h2 { font-size:2em; color:#40434c; font-weight:700; margin-top:0; }
     .carousel-container {margin:0 auto;}
-    .carousel-slide img {max-width:95vw;width:620px;height:420px;object-fit:cover;border-radius:12px;box-shadow:0 4px 22px -8px #2224;}
+    .carousel-slide img {max-width:95vw;width:620px;height:420px;object-fit:cover;border-radius:12px;box-shadow:0 4px 22px -8px #2224;cursor:pointer;}
     .carousel-controls, .carousel-thumbs { text-align:center; margin-top:10px;}
+    .carousel-controls button {
+      border:none;background:#e2e8f0;color:#26347d;font-size:2em;padding:5px 13px;margin:0 7px;border-radius:7px;cursor:pointer;font-weight:700;
+    }
+    .carousel-controls button:hover {background:#dde1e7;}
+    .carousel-thumbs img {width:48px;height:38px;border-radius:7px;border:2px solid #eee;cursor:pointer;object-fit:cover;}
+    .carousel-thumbs img.active { border-color:#26347d !important; }
+    .modal-bg {
+      display:none; position:fixed;z-index:999;top:0;left:0;width:100vw;height:100vh;background:rgba(51,51,51,0.93); align-items:center;justify-content:center;
+    }
+    .modal-img-box {background:#222;border-radius:15px;padding:18px;}
+    .modal-img-box img { max-width:94vw;max-height:82vh;width:680px;height:480px;object-fit:contain;border-radius:12px;}
+    .modal-close {position:absolute;top:30px;right:48px;font-size:2.1em;color:#fff;cursor:pointer;}
+    @media (max-width: 800px) {
+      .header, nav.menu, .white-box, .box-grey02, .logo-box, .historico-content, .footer { max-width:99vw;padding:14px;}
+      .footer img.footer-logo{height:32px;}
+      .header h1{font-size:1.05em;}
+      .logo-box img{width:99vw;}
+      .carousel-slide img, .modal-img-box img {width:99vw;height:240px;}
+    }
     .footer { display:flex;align-items:center;background:#ececec; padding:18px 32px;border-radius:0 0 8px 8px; font-size:15px; justify-content:center;gap:46px;}
     .footer .footer-logos { display:flex;align-items:center;gap:22px; }
     .footer img.footer-logo { height:40px;transition:filter 0.2s;}
@@ -45,13 +63,6 @@
     .tabela-alternada td { padding:7px 14px;}
     .tabela-alternada tr:nth-child(even) { background:#f8f9fa; }
     .tabela-alternada tr:nth-child(odd)  { background:#eaeaea; }
-    @media (max-width: 800px) {
-      .header, nav.menu, .white-box, .box-grey02, .logo-box, .historico-content, .footer { max-width:99vw;padding:14px;}
-      .footer img.footer-logo{height:32px;}
-      .header h1{font-size:1.05em;}
-      .logo-box img{width:99vw;}
-      .tabela-alternada {width:97vw;}
-    }
   </style>
 </head>
 <body>
@@ -96,11 +107,25 @@
   <!-- FOTOS -->
   <section id="fotos" class="white-box">
     <h2 class="projects-title">Galeria de Fotos</h2>
-    <audio id="audioDance" src="dance.mp3" autoplay loop preload="auto"></audio>
+    <audio id="audioGallery" src="audio.mp3" preload="auto"></audio>
     <div class="carousel-container">
-      <div class="carousel-slide active"><img src="ctb1.jpg" alt="CTB Foto 1" onclick="openModal(0)"></div>
-      <div class="carousel-slide"><img src="ctb2.jpg" alt="CTB Foto 2" onclick="openModal(1)"></div>
-      <!-- demais imagens ... -->
+      <!-- ctb1.jpg ... ctb16.jpg -->
+      <div class="carousel-slide active"><img src="ctb1.jpg" alt="CTB Foto 1" onclick="maximizeImg('ctb1.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb2.jpg" alt="CTB Foto 2" onclick="maximizeImg('ctb2.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb3.jpg" alt="CTB Foto 3" onclick="maximizeImg('ctb3.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb4.jpg" alt="CTB Foto 4" onclick="maximizeImg('ctb4.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb5.jpg" alt="CTB Foto 5" onclick="maximizeImg('ctb5.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb6.jpg" alt="CTB Foto 6" onclick="maximizeImg('ctb6.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb7.jpg" alt="CTB Foto 7" onclick="maximizeImg('ctb7.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb8.jpg" alt="CTB Foto 8" onclick="maximizeImg('ctb8.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb9.jpg" alt="CTB Foto 9" onclick="maximizeImg('ctb9.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb10.jpg" alt="CTB Foto 10" onclick="maximizeImg('ctb10.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb11.jpg" alt="CTB Foto 11" onclick="maximizeImg('ctb11.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb12.jpg" alt="CTB Foto 12" onclick="maximizeImg('ctb12.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb13.jpg" alt="CTB Foto 13" onclick="maximizeImg('ctb13.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb14.jpg" alt="CTB Foto 14" onclick="maximizeImg('ctb14.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb15.jpg" alt="CTB Foto 15" onclick="maximizeImg('ctb15.jpg')"></div>
+      <div class="carousel-slide"><img src="ctb16.jpg" alt="CTB Foto 16" onclick="maximizeImg('ctb16.jpg')"></div>
     </div>
     <div class="carousel-controls">
       <button onclick="plusSlide(-1)">&#8592;</button>
@@ -108,12 +133,26 @@
       <button onclick="plusSlide(1)">&#8594;</button>
     </div>
     <div class="carousel-thumbs">
+      <!-- 16 miniaturas -->
       <img src="ctb1.jpg" onclick="goToSlide(0)" class="active">
       <img src="ctb2.jpg" onclick="goToSlide(1)">
-      <!-- demais miniaturas ... -->
+      <img src="ctb3.jpg" onclick="goToSlide(2)">
+      <img src="ctb4.jpg" onclick="goToSlide(3)">
+      <img src="ctb5.jpg" onclick="goToSlide(4)">
+      <img src="ctb6.jpg" onclick="goToSlide(5)">
+      <img src="ctb7.jpg" onclick="goToSlide(6)">
+      <img src="ctb8.jpg" onclick="goToSlide(7)">
+      <img src="ctb9.jpg" onclick="goToSlide(8)">
+      <img src="ctb10.jpg" onclick="goToSlide(9)">
+      <img src="ctb11.jpg" onclick="goToSlide(10)">
+      <img src="ctb12.jpg" onclick="goToSlide(11)">
+      <img src="ctb13.jpg" onclick="goToSlide(12)">
+      <img src="ctb14.jpg" onclick="goToSlide(13)">
+      <img src="ctb15.jpg" onclick="goToSlide(14)">
+      <img src="ctb16.jpg" onclick="goToSlide(15)">
     </div>
-    <div class="modal-bg" id="modal-bg" onclick="closeModal()">
-      <span class="modal-close" onclick="closeModal()">&times;</span>
+    <div class="modal-bg" id="modal-bg" onclick="closeFullImg()">
+      <span class="modal-close" onclick="closeFullImg()">&times;</span>
       <div class="modal-img-box" id="modal-img-box"></div>
     </div>
   </section>
@@ -162,7 +201,7 @@
   </section>
   <!-- LOGOMARCA CENTRALIZADA -->
   <section id="logomarca" class="logo-box">
-    <img src="ctbct.png" alt="Logomarca CTB Estilo Centralizado">
+    <img src="ctbct.png" alt="Logomarca CTB Estilo Centralizado" style="cursor:pointer;" onclick="maximizeImg('ctbct.png')">
     <h2>Clube dos Tenistas da Bahia</h2>
     <p style="font-size:1.14em;text-align:center;max-width:430px;margin:auto;">Símbolo de integração, desenvolvimento e saúde para todos em Camaçari</p>
   </section>
@@ -186,32 +225,46 @@
       <span>71-98530-4903</span>
     </div>
   </footer>
+  <div class="modal-bg" id="modal-bg" onclick="closeFullImg()">
+    <span class="modal-close" onclick="closeFullImg()">&times;</span>
+    <div class="modal-img-box" id="modal-img-box"></div>
+  </div>
   <script>
-    // Carrossel
     let slideIndex = 0;
     const slides = document.querySelectorAll('.carousel-slide');
     const thumbs = document.querySelectorAll('.carousel-thumbs img');
+    const totalSlides = slides.length;
+
     function showSlide(n) {
       slideIndex = (n + slides.length) % slides.length;
       slides.forEach((sl,i)=> sl.classList.toggle('active', i===slideIndex));
-      thumbs.forEach((th,i)=> th.classList.toggle('active',i===slideIndex));
+      if(thumbs.length)
+        thumbs.forEach((th,i)=> th.classList.toggle('active',i===slideIndex));
       document.getElementById('slide-count').innerText = (slideIndex+1) + "/" + slides.length;
     }
     function plusSlide(n) { showSlide(slideIndex+n); }
     function goToSlide(n) { showSlide(n); }
     showSlide(0);
-    function openModal(idx) {
-      var src = slides[idx].querySelector('img').src;
+
+    // Maximiza imagem ao clicar com som
+    function maximizeImg(src) {
       document.getElementById('modal-bg').style.display = 'flex';
       document.getElementById('modal-img-box').innerHTML = `<img src=\"${src}\">`;
+      var audio = new Audio('audio.mp3');
+      audio.volume = 0.25;
+      audio.play();
     }
-    function closeModal() {
+    function closeFullImg() {
       document.getElementById('modal-bg').style.display = 'none';
       document.getElementById('modal-img-box').innerHTML = '';
     }
+
+    // Play audio baixo ao mouseenter na galeria
     document.addEventListener('DOMContentLoaded',function(){
-      var audio=document.getElementById('audioDance');
-      if(audio) audio.volume=0.14;
+      var audio=document.getElementById('audioGallery');
+      if(audio) audio.volume=0.12;
+      document.querySelector('#fotos').addEventListener('mouseenter',()=>{if(audio.paused) audio.play();});
+      document.querySelector('#fotos').addEventListener('touchstart',()=>{if(audio.paused) audio.play();});
     });
   </script>
 </body>
