@@ -7,53 +7,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body, .projeto-card, .projeto-card *, .white-box, .historico-content, .footer, .projects-title {
-      font-family: 'Inter', Arial, sans-serif !important;
-      color: #35353a;
+      font-family: 'Inter', Arial, sans-serif !important; color: #35353a;
     }
     body { background: #f5f6f8; margin:0; }
-    .menu { background:#e2e8f0;display:flex;justify-content:center;padding:8px 0;border-bottom:1px solid #e2e8f0;}
+    .header {
+      display:flex;align-items:center;justify-content:space-between;
+      background:rgba(8,8,8,0.90); padding:16px 32px;
+      border-radius:8px 8px 0 0;
+    }
+    .header h1 { color:white;font-size:1.7em;text-align:center;margin:0;flex:1; font-family: 'Inter', Arial, sans-serif;font-weight:900;letter-spacing:0.5px;}
+    .header img { height:56px; }
+    .header .header-left {flex:0;}
+    .header .header-right {flex:0;}
+    .menu { background:#e2e8f0;display:flex;justify-content:center; padding:8px 0;border-bottom:1px solid #e2e8f0;}
     .menu a { margin:0 24px; color:#444;text-decoration:none;font-weight:600;transition:color 0.2s;}
     .menu a:hover { color: #26347d; }
-    .white-box, .historico-content { background:#ececec;border-radius:8px;box-shadow:0 2px 6px -2px rgba(0,0,0,0.06);border:1px solid #e2e8f0; padding:30px 30px 22px;margin-bottom:38px;}
-    .footer {
-      display:flex;align-items:center;background:#ececec;
-      padding:18px 32px;border-radius:0 0 8px 8px; margin-top:40px; font-size:15px; justify-content:space-between;
-    }
+    .box-grey02 {background:#fafafb;border-radius:8px;padding:30px;margin-bottom:36px;}
+    .projeto-card h2, .projeto-card h3 { color: #30323d; }
+    .tabela-alternada {width:100%;border-collapse:collapse;margin-top:16px;}
+    .tabela-alternada th { background:#ececec; font-weight:700; padding:8px;}
+    .tabela-alternada td { padding:7px 14px;}
+    .tabela-alternada tr:nth-child(even) { background:#f8f9fa; }
+    .tabela-alternada tr:nth-child(odd)  { background:#eaeaea; }
+    .footer { display:flex;align-items:center;background:#ececec; padding:18px 32px;border-radius:0 0 8px 8px; margin-top:40px; font-size:15px; justify-content:space-between;}
     .footer .footer-logos { display:flex;align-items:center;gap:22px; }
     .footer img.footer-logo { height:40px;transition:filter 0.2s;}
     .footer img.footer-logo:hover { filter:brightness(1.3);}
     .footer div { font-size:0.95em; }
     .footer strong { font-weight:700;}
     .footer a { color:#252525; text-decoration: none; font-weight:600;}
-    .logo-box { background: #f8f9fa; border-radius: 12px; max-width: 700px; margin:34px auto; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow:0 3px 10px -6px rgba(0,0,0,0.08); border:1px solid #ececec; padding:50px 18px;}
-    .logo-box img { width:370px; max-width:99vw; margin-bottom:22px; border-radius:12px; background:#ececec; }
-    .logo-box h2 { font-size:2em; color:#40434c; font-weight:700; margin-top:0; }
-    /* Carrossel Fotos */
-    .carousel-container {position:relative;max-width:700px;margin:28px auto;}
-    .carousel-slide {display:none;}
-    .carousel-slide.active {display:flex;align-items:center;justify-content:center;}
-    .carousel-slide img {max-width:95vw;width:620px;height:420px;object-fit:cover;border-radius:12px;box-shadow:0 4px 22px -8px #2224;}
-    .carousel-controls {text-align:center;margin-top:10px;}
-    .carousel-controls button {
-      border:none;background:#e2e8f0;color:#26347d;font-size:2em;padding:5px 13px;margin:0 7px;border-radius:7px;cursor:pointer;font-weight:700;
-    }
-    .carousel-controls button:hover {background:#dde1e7;}
-    .carousel-thumbs {display:flex;justify-content:center;gap:7px;margin-top:10px;}
-    .carousel-thumbs img {width:48px;height:38px;border-radius:7px;border:2px solid #eee;cursor:pointer;object-fit:cover;}
-    .carousel-thumbs img.active { border-color:#26347d !important; }
-    .modal-bg { display:none; position:fixed;z-index:999;top:0;left:0;width:100vw;height:100vh;background:rgba(51,51,51,0.93); align-items:center;justify-content:center;}
-    .modal-img-box {background:#222;border-radius:15px;padding:18px;}
-    .modal-img-box img { max-width:94vw;max-height:82vh;width:680px;height:480px;object-fit:cover;border-radius:12px;}
-    .modal-close {position:absolute;top:30px;right:48px;font-size:2.1em;color:#fff;cursor:pointer;}
-    @media (max-width: 680px) {
-      .white-box, .historico-content, .logo-box { max-width:99vw;padding:12px;}
+    @media (max-width: 700px) {
+      .header, .menu, .footer { padding: 8px 6px!important;}
+      .box-grey02, .historico-content { max-width:99vw;padding:12px;}
       .footer img.footer-logo{height:32px;}
-      .logo-box img{width:99vw;}
+      .header h1{font-size:1.05em;}
     }
   </style>
 </head>
 <body>
-  <!-- MENU E NAVEGAÇÃO -->
+  <!-- CABEÇALHO -->
+  <div class="header">
+    <div class="header-left"><img src="ctb20.png" alt="Logo CTB"></div>
+    <h1>Centro Esportivo de Camaçari - Tênis de Mesa</h1>
+    <div class="header-right"><img src="ctbct.png" alt="Logo CTBCT"></div>
+  </div>
+  <!-- MENU -->
   <nav class="menu">
     <a href="#apresentacao">Apresentação</a>
     <a href="#historico">Histórico</a>
@@ -61,119 +59,48 @@
     <a href="#projeto">Projeto</a>
     <a href="#logomarca">Logomarca</a>
   </nav>
-  <!-- PAGINA 1 - APRESENTAÇÃO -->
-  <div id="apresentacao" class="white-box" style="margin-top:24px;">
-    <h2>Centro Esportivo de Camaçari - Tênis de Mesa</h2>
-    <video src="ctbctvideo.mp4" autoplay muted loop controls poster="ctb20.png" style="border-radius:18px;box-shadow:0 8px 22px -10px #2322;max-width:480px;width:94vw;display:block;margin:26px auto 0 auto;"></video>
-    <h3 style="margin-top:22px;">Bem-vindo! Inclusão e desenvolvimento em Camaçari através do esporte.</h3>
-  </div>
-  <!-- HISTÓRICO -->
-  <div id="historico" class="white-box">
-    <h2>Histórico e Atuação do CTB: Esporte, Inclusão e Desenvolvimento na Bahia</h2>
-    <h3>Fundação e Missão</h3>
-    <p>Fundado em Salvador, o <strong>Clube dos Tenistas da Bahia (CTB)</strong> nasceu da paixão pelo esporte e da crença em seu poder de transformação social. Desde o início, sua missão foi clara: democratizar o acesso ao tênis e ao tênis de mesa, utilizando essas modalidades como ferramentas para a educação, inclusão e desenvolvimento de crianças e jovens em todo o estado.</p>
-    <h3>Principais Pilares de Atuação</h3>
+  <!-- PROJETO -->
+  <div id="projeto" class="box-grey02">
+    <h2>Síntese do Projeto</h2>
+    <p><strong>EcoMesa Wellness Hubs:</strong> Centro integral de saúde, bem-estar e impacto social com tênis de mesa. Adaptação inovadora de galpão na BYD Camaçari para atender gratuitamente 200 crianças (Educação + Esporte + Sustentabilidade), integrando tecnologia, eventos, cafe saudável e mentoria esportiva.</p>
+    <h3>Justificativa</h3>
+    <p>A carência de espaços de integração social e práticas de saúde preventiva na região de Camaçari demanda uma solução moderna e multiplataforma. O tênis de mesa no Centro Esportivo CTB propõe a democratização do acesso ao esporte e a educação ambiental, alinhado à agenda ESG global.</p>
+    <h3>Metodologia/Execução</h3>
     <ul>
-      <li><strong>Inclusão Social:</strong> Levar o esporte a comunidades e grupos vulneráveis, oferecendo uma alternativa saudável de lazer e desenvolvimento pessoal, e promovendo valores como disciplina, respeito e trabalho em equipe.</li>
-      <li><strong>Educação através do Esporte:</strong> Integrar a prática esportiva ao ambiente escolar, como nos projetos "Educar com Tênis de Mesa", reforçando o aprendizado e combatendo a evasão escolar.</li>
-      <li><strong>Fomento ao Esporte:</strong> Utilizar a Lei de Incentivo ao Esporte como principal ferramenta para viabilizar projetos, captar recursos e criar uma estrutura sustentável para o crescimento das modalidades na Bahia.</li>
+      <li>Adaptação sustentável do galpão BYD com mesas modulares, jardim vertical e café saudável.</li>
+      <li>Aulas para crianças e adultos, oficinas ambientais e festival de tênis de mesa</li>
+      <li>App próprio para agendamento, ranking gamificado e educação ambiental digital</li>
+      <li>Mentoria para jovens, eventos comunitários e integração com escolas e empresas</li>
     </ul>
-    <h3>Visão Estratégica</h3>
-    <div class="visao-estrategica" style="background:#ececec;padding:14px 18px;border-radius:5px;">
-      <p><strong>"Ser uma entidade de referência nacional na gestão de projetos esportivos inclusivos, reconhecida pela excelência, transparência e pelo impacto social positivo gerado na vida dos participantes e em suas comunidades, transformando a Bahia em um celeiro de talentos e cidadãos."</strong></p>
-    </div>
-    <h3>Legado e Futuro</h3>
-    <p>Ao longo de sua trajetória, o CTB já impactou a vida de centenas de jovens, consolidando projetos de sucesso e construindo uma forte rede de parceiros. O foco para o futuro é expandir ainda mais o alcance de suas ações, implementando novas tecnologias e metodologias para continuar a transformar vidas através da força do esporte.</p>
-  </div>
-  <!-- FOTOS COM CARROSSEL E ÁUDIO -->
-  <div id="fotos" class="white-box">
-    <h2 class="projects-title">Galeria de Fotos</h2>
-    <audio id="audioDance" src="dance.mp3" autoplay loop preload="auto"></audio>
-    <div class="carousel-container">
-      <div class="carousel-slide active"><img src="ctb1.jpg" alt="CTB Foto 1" onclick="openModal(0)"></div>
-      <div class="carousel-slide"><img src="ctb2.jpg" alt="CTB Foto 2" onclick="openModal(1)"></div>
-      <!-- ... demais imagens ... -->
-    </div>
-    <div class="carousel-controls">
-      <button onclick="plusSlide(-1)">&#8592;</button>
-      <span id="slide-count">1/16</span>
-      <button onclick="plusSlide(1)">&#8594;</button>
-    </div>
-    <div class="carousel-thumbs">
-      <img src="ctb1.jpg" onclick="goToSlide(0)" class="active">
-      <img src="ctb2.jpg" onclick="goToSlide(1)">
-      <!-- ... demais miniaturas ... -->
-    </div>
-    <div class="modal-bg" id="modal-bg" onclick="closeModal()">
-      <span class="modal-close" onclick="closeModal()">&times;</span>
-      <div class="modal-img-box" id="modal-img-box"></div>
-    </div>
-  </div>
-  <!-- PROJETO COM EXPLICAÇÃO + TABELAS -->
-  <div id="projeto" class="projeto-card">
-    <!-- Utilize o texto detalhado do projeto da resposta anterior, e inclua as tabelas financeiras e ESG! -->
-    <div class="box-cinza-30">
-      <h2>Síntese do Projeto</h2>
-      <p><strong>EcoMesa Wellness Hubs:</strong> Centro integral de saúde, bem-estar e impacto social com tênis de mesa. Adaptação inovadora de galpão na BYD Camaçari para atender gratuitamente 200 crianças (Educação + Esporte + Sustentabilidade), integrando tecnologia, eventos, cafe saudável e mentoria esportiva.</p>
-    </div>
-    <div class="box-cinza-30">
-      <h3>Justificativa</h3>
-      <p>A carência de espaços de integração social e práticas de saúde preventiva na região de Camaçari demanda uma solução moderna e multiplataforma. O tênis de mesa no Centro Esportivo CTB propõe a democratização do acesso ao esporte e a educação ambiental, alinhado à agenda ESG global.</p>
-    </div>
-    <div class="box-cinza-30">
-      <h3>Metodologia/Execução</h3>
-      <ul>
-        <li>Adaptação sustentável do galpão BYD com mesas modulares, jardim vertical e café saudável.</li>
-        <li>Aulas para crianças e adultos, oficinas ambientais e festival de tênis de mesa</li>
-        <li>App próprio para agendamento, ranking gamificado e educação ambiental digital</li>
-        <li>Mentoria para jovens, eventos comunitários e integração com escolas e empresas</li>
-      </ul>
-    </div>
-    <div class="box-cinza-20">
-      <h3>Resumo Financeiro</h3>
-      <table class="tabela-alternada">
-        <tr>
-          <th>Item</th><th>Valor (R$)</th><th>Categoria</th>
-        </tr>
-        <tr><td>Adaptação de Galpões</td><td>300.000</td><td>Infraestrutura</td></tr>
-        <tr><td>Mesas de Tênis de Mesa (20)</td><td>80.000</td><td>Equipamentos</td></tr>
-        <tr><td>Mobiliário e Ambientação Verde</td><td>50.000</td><td>Infraestrutura</td></tr>
-        <tr><td>App/Plataforma</td><td>120.000</td><td>Tecnologia</td></tr>
-        <tr><td>Marketing e Lançamento</td><td>40.000</td><td>Marketing</td></tr>
-        <tr><td>Capital de Giro (3 meses)</td><td>60.000</td><td>Operacional</td></tr>
-        <tr><td>Alvará e Licenças</td><td>10.000</td><td>Legal</td></tr>
-      </table>
-    </div>
-    <div class="box-cinza-10">
-      <h3>Metas ESG e Impacto</h3>
-      <table class="tabela-alternada">
-        <tr>
-          <th>Indicador</th><th>Meta Anual</th><th>Categoria</th>
-        </tr>
-        <tr><td>Crianças e adolescentes atendidos</td><td>400</td><td>Social</td></tr>
-        <tr><td>Escolas parceiras</td><td>20</td><td>Social</td></tr>
-        <tr><td>Empresas com programas de wellness</td><td>10</td><td>Corpo Corporativo</td></tr>
-        <tr><td>Mutirões Ambientais</td><td>24</td><td>Ambiental</td></tr>
-        <tr><td>Kg de resíduos reciclados</td><td>5.000</td><td>Ambiental</td></tr>
-        <tr><td>Árvores plantadas</td><td>100</td><td>Ambiental</td></tr>
-        <tr><td>Horas de voluntariado</td><td>2.000</td><td>Social</td></tr>
-        <tr><td>Empregos diretos gerados</td><td>20</td><td>Social</td></tr>
-      </table>
-    </div>
-    <div class="box-cinza-30">
-      <h3>Cronograma Sintético</h3>
-      <ul>
-        <li>Meses 1-3: Captação, adaptação do galpão, contratação de equipe</li>
-        <li>Meses 4-6: Lançamento das ações, integração com escolas, app em funcionamento</li>
-        <li>Meses 7-12: Consolidação operacional, festivais de tênis de mesa, mutirões ambientais</li>
-      </ul>
-    </div>
-  </div>
-  <!-- LOGOMARCA CENTRALIZADA -->
-  <div id="logomarca" class="logo-box">
-    <img src="ctbct.png" alt="Logomarca CTB Estilo Centralizado">
-    <h2>Clube dos Tenistas da Bahia</h2>
-    <p style="font-size:1.14em;text-align:center;max-width:430px;margin:auto;">Símbolo de integração, desenvolvimento e saúde para todos em Camaçari</p>
+    <h3>Resumo Financeiro</h3>
+    <table class="tabela-alternada">
+      <tr><th>Item</th><th>Valor (R$)</th><th>Categoria</th></tr>
+      <tr><td>Adaptação de Galpões</td><td>300.000</td><td>Infraestrutura</td></tr>
+      <tr><td>Mesas de Tênis de Mesa (20)</td><td>80.000</td><td>Equipamentos</td></tr>
+      <tr><td>Mobiliário e Ambientação Verde</td><td>50.000</td><td>Infraestrutura</td></tr>
+      <tr><td>App/Plataforma</td><td>120.000</td><td>Tecnologia</td></tr>
+      <tr><td>Marketing e Lançamento</td><td>40.000</td><td>Marketing</td></tr>
+      <tr><td>Capital de Giro (3 meses)</td><td>60.000</td><td>Operacional</td></tr>
+      <tr><td>Alvará e Licenças</td><td>10.000</td><td>Legal</td></tr>
+    </table>
+    <h3>Metas ESG e Impacto</h3>
+    <table class="tabela-alternada">
+      <tr><th>Indicador</th><th>Meta Anual</th><th>Categoria</th></tr>
+      <tr><td>Crianças e adolescentes atendidos</td><td>400</td><td>Social</td></tr>
+      <tr><td>Escolas parceiras</td><td>20</td><td>Social</td></tr>
+      <tr><td>Empresas com programas de wellness</td><td>10</td><td>Corpo Corporativo</td></tr>
+      <tr><td>Mutirões Ambientais</td><td>24</td><td>Ambiental</td></tr>
+      <tr><td>Kg de resíduos reciclados</td><td>5.000</td><td>Ambiental</td></tr>
+      <tr><td>Árvores plantadas</td><td>100</td><td>Ambiental</td></tr>
+      <tr><td>Horas de voluntariado</td><td>2.000</td><td>Social</td></tr>
+      <tr><td>Empregos diretos gerados</td><td>20</td><td>Social</td></tr>
+    </table>
+    <h3>Cronograma Sintético</h3>
+    <ul>
+      <li>Meses 1-3: Captação, adaptação do galpão, contratação de equipe</li>
+      <li>Meses 4-6: Lançamento das ações, integração com escolas, app em funcionamento</li>
+      <li>Meses 7-12: Consolidação operacional, festivais de tênis de mesa, mutirões ambientais</li>
+    </ul>
   </div>
   <!-- RODAPÉ -->
   <footer class="footer">
@@ -195,35 +122,5 @@
       <span>71-98530-4903</span>
     </div>
   </footer>
-  <script>
-    // Carrossel
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const thumbs = document.querySelectorAll('.carousel-thumbs img');
-    function showSlide(n) {
-      slideIndex = (n + slides.length) % slides.length;
-      slides.forEach((sl,i)=> sl.classList.toggle('active', i===slideIndex));
-      thumbs.forEach((th,i)=> th.classList.toggle('active',i===slideIndex));
-      document.getElementById('slide-count').innerText = (slideIndex+1) + "/" + slides.length;
-    }
-    function plusSlide(n) { showSlide(slideIndex+n); }
-    function goToSlide(n) { showSlide(n); }
-    showSlide(0);
-    function openModal(idx) {
-      var src = slides[idx].querySelector('img').src;
-      document.getElementById('modal-bg').style.display = 'flex';
-      document.getElementById('modal-img-box').innerHTML = `<img src=\"${src}\">`;
-    }
-    function closeModal() {
-      document.getElementById('modal-bg').style.display = 'none';
-      document.getElementById('modal-img-box').innerHTML = '';
-    }
-    document.addEventListener('DOMContentLoaded',function(){
-      var audio=document.getElementById('audioDance');
-      audio.volume=0.14;
-      document.querySelector('#fotos').addEventListener('mouseenter',()=>{if(audio.paused) audio.play();});
-      document.querySelector('#fotos').addEventListener('touchstart',()=>{if(audio.paused) audio.play();});
-    });
-  </script>
 </body>
 </html>
