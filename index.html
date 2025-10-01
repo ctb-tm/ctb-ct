@@ -10,13 +10,10 @@
       font-family: 'Inter', Arial, sans-serif !important; color: #35353a;
     }
     body { background: #f5f6f8; margin:0; text-align:center;}
-    .header {
-      display:flex;align-items:center;justify-content:space-between;
-      background:rgba(8,8,8,0.90); padding:16px 32px;
-      border-radius:8px 8px 0 0; margin-bottom:12px;
-    }
+    .header { display:flex;align-items:center;justify-content:space-between;
+      background:rgba(8,8,8,0.90); padding:16px 32px; border-radius:8px 8px 0 0; margin-bottom:12px; }
     .header-left, .header-right {flex:0;}
-    .header h1 { color:white;font-size:1.7em;flex:1; font-family: 'Inter', Arial, sans-serif;font-weight:900;letter-spacing:0.5px;text-align:center;margin:0;}
+    .header h1 { color:white;font-size:1.7em;flex:1;font-weight:900;letter-spacing:0.5px;text-align:center;margin:0;}
     .header img { height:56px; }
     nav.menu { background:#e2e8f0;display:flex;justify-content:center; padding:8px 0;border-bottom:1px solid #e2e8f0;margin-bottom:16px;}
     nav.menu a { margin:0 24px; color:#444; text-decoration:none;font-weight:600;transition:color 0.2s;}
@@ -28,24 +25,19 @@
     .logo-box {background:#f8f9fa;padding:50px 18px;}
     .logo-box img { width:370px; max-width:98vw; margin-bottom:22px; border-radius:12px; background:#ececec; box-shadow:0 2px 24px -8px #1114;}
     .logo-box h2 { font-size:2em; color:#40434c; font-weight:700; margin-top:0; }
-    /* carrossel lateral */
     .carousel-lateral-area {display: flex;align-items: center;justify-content:center;margin:0 auto 0 auto;gap:22px;width:100%;}
     .carousel-lateral-thumbbar {display:flex;flex-direction:column;gap:12px;max-height:445px;overflow-y:auto;}
     .carousel-lateral-thumbbar img {width:62px;height:56px;object-fit:cover;cursor:pointer;border-radius:8px;border:3px solid #ececec;transition:.16s;}
     .carousel-lateral-thumbbar img.active {border:3px solid #26347d;}
     .carousel-lateral-img {position:relative;}
     .carousel-lateral-mainimg {max-width:85vw;width:510px;height:420px;object-fit:cover;border-radius:18px;box-shadow:0 4px 22px -8px #2224;cursor:pointer;}
-    .carousel-lateral-controls {
-      display:flex;justify-content:center;align-items:center;margin:12px 0 2px 0;gap:18px;
-    }
+    .carousel-lateral-controls { display:flex;justify-content:center;align-items:center;margin:12px 0 2px 0;gap:18px;}
     .carousel-lateral-controls button {
       border:none;background:#e2e8f0;color:#26347d;font-size:2.2em;padding:4px 15px;border-radius:7px;cursor:pointer;font-weight:700;
       box-shadow: 0 0 7px #e2e8f0;
     }
     .carousel-lateral-controls button:hover {background:#dde1e7;}
-    .modal-bg {
-      display:none; position:fixed;z-index:999;top:0;left:0;width:100vw;height:100vh;background:rgba(51,51,51,0.93); align-items:center;justify-content:center;
-    }
+    .modal-bg { display:none; position:fixed;z-index:999;top:0;left:0;width:100vw;height:100vh;background:rgba(51,51,51,0.93); align-items:center;justify-content:center;}
     .modal-img-box {background:#222;border-radius:15px;padding:18px;}
     .modal-img-box img { max-width:94vw;max-height:82vh;width:680px;height:480px;object-fit:contain;border-radius:12px;}
     .modal-close {position:absolute;top:30px;right:48px;font-size:2.1em;color:#fff;cursor:pointer;}
@@ -77,13 +69,12 @@
   </style>
 </head>
 <body>
-  <!-- CABEÇALHO -->
+  <!-- CABEÇALHO E MENU -->
   <div class="header">
     <div class="header-left"><img src="ctb20.png" alt="Logo CTB"></div>
     <h1>Centro Esportivo de Camaçari - Tênis de Mesa</h1>
     <div class="header-right"><img src="ctbct.png" alt="Logo CTBCT"></div>
   </div>
-  <!-- MENU -->
   <nav class="menu">
     <a href="#apresentacao">Apresentação</a>
     <a href="#historico">Histórico</a>
@@ -121,7 +112,6 @@
     <audio id="audioGallery" src="audio.mp3" preload="auto"></audio>
     <div class="carousel-lateral-area">
       <div class="carousel-lateral-thumbbar" id="thumbbar">
-        <!-- 16 thumbs -->
         <img src="ctbct1.jpg" class="active" onclick="goToSlide(0)">
         <img src="ctbct2.jpg" onclick="goToSlide(1)">
         <img src="ctbct3.jpg" onclick="goToSlide(2)">
@@ -153,10 +143,50 @@
       <div class="modal-img-box" id="modal-img-box"></div>
     </div>
   </section>
-  <!-- PROJETO e LOGOMARCA ... igual ao modelo anterior ... -->
+  <!-- PROJETO -->
   <section id="projeto" class="box-grey02">
-    <!-- Conteúdo igual ao exemplo anterior, incluindo tabelas/esg/cinzas ... -->
+    <h2>Síntese do Projeto</h2>
+    <p><strong>EcoMesa Wellness Hubs:</strong> Centro integral de saúde, bem-estar e impacto social com tênis de mesa. Adaptação inovadora de galpão na BYD Camaçari para atender gratuitamente 200 crianças (Educação + Esporte + Sustentabilidade), integrando tecnologia, eventos, cafe saudável e mentoria esportiva.</p>
+    <h3>Justificativa</h3>
+    <p>A carência de espaços de integração social e práticas de saúde preventiva na região de Camaçari demanda uma solução moderna e multiplataforma. O tênis de mesa no Centro Esportivo CTB propõe a democratização do acesso ao esporte e a educação ambiental, alinhado à agenda ESG global.</p>
+    <h3>Metodologia/Execução</h3>
+    <ul style="display:inline-block;text-align:left; margin:0 auto;">
+      <li>Adaptação sustentável do galpão BYD com mesas modulares, jardim vertical e café saudável.</li>
+      <li>Aulas para crianças e adultos, oficinas ambientais e festival de tênis de mesa</li>
+      <li>App próprio para agendamento, ranking gamificado e educação ambiental digital</li>
+      <li>Mentoria para jovens, eventos comunitários e integração com escolas e empresas</li>
+    </ul>
+    <h3>Resumo Financeiro 750.000,00</h3>
+    <table class="tabela-alternada">
+      <tr><th>Item</th><th>Valor (R$)</th><th>Categoria</th></tr>
+      <tr><td>Aluguel de Galpão</td><td>240.000</td><td>Infraestrutura</td></tr>
+      <tr><td>Mesas de Tênis de Mesa (20)</td><td>80.000</td><td>Equipamentos</td></tr>
+      <tr><td>Mobiliário e Ambientação Verde</td><td>50.000</td><td>Infraestrutura</td></tr>
+      <tr><td>App/Plataforma</td><td>80.000</td><td>Tecnologia</td></tr>
+      <tr><td>Marketing e Lançamento</td><td>40.000</td><td>Marketing</td></tr>
+      <tr><td>Eventos</td><td>60.000</td><td>Operacional</td></tr>
+      <tr><td>Recursos Humanos</td><td>200.000</td><td>Pessoal</td></tr>
+    </table>
+    <h3>Metas ESG e Impacto</h3>
+    <table class="tabela-alternada">
+      <tr><th>Indicador</th><th>Meta Anual</th><th>Categoria</th></tr>
+      <tr><td>Crianças e adolescentes atendidos</td><td>400</td><td>Social</td></tr>
+      <tr><td>Escolas parceiras</td><td>20</td><td>Social</td></tr>
+      <tr><td>Empresas com programas de wellness</td><td>10</td><td>Corpo Corporativo</td></tr>
+      <tr><td>Mutirões Ambientais</td><td>24</td><td>Ambiental</td></tr>
+      <tr><td>Kg de resíduos reciclados</td><td>5.000</td><td>Ambiental</td></tr>
+      <tr><td>Árvores plantadas</td><td>100</td><td>Ambiental</td></tr>
+      <tr><td>Horas de voluntariado</td><td>2.000</td><td>Social</td></tr>
+      <tr><td>Empregos diretos gerados</td><td>20</td><td>Social</td></tr>
+    </table>
+    <h3>Cronograma Sintético</h3>
+    <ul style="display:inline-block;text-align:left; margin:0 auto;">
+      <li>Meses 1-3: Captação, adaptação do galpão, contratação de equipe</li>
+      <li>Meses 4-6: Lançamento das ações, integração com escolas, app em funcionamento</li>
+      <li>Meses 7-12: Consolidação operacional, festivais de tênis de mesa, mutirões ambientais</li>
+    </ul>
   </section>
+  <!-- LOGOMARCA CENTRALIZADA -->
   <section id="logomarca" class="logo-box">
     <img src="ctbct.png" alt="Logomarca CTB Estilo Centralizado" style="cursor:pointer;" onclick="maximizeImgCTB()">
     <h2>Clube dos Tenistas da Bahia</h2>
@@ -186,7 +216,6 @@
     <div class="modal-img-box" id="modal-img-box"></div>
   </div>
   <script>
-    // Carrossel lateral
     let currentIdx = 0;
     const imgList = [
       'ctbct1.jpg','ctbct2.jpg','ctbct3.jpg','ctbct4.jpg','ctbct5.jpg','ctbct6.jpg','ctbct7.jpg','ctbct8.jpg',
@@ -215,12 +244,10 @@
       document.getElementById('modal-bg').style.display = 'none';
       document.getElementById('modal-img-box').innerHTML = '';
     }
-    // Maximiza logomarca CTB da página logomarca
     function maximizeImgCTB(){
       document.getElementById('modal-bg').style.display = 'flex';
       document.getElementById('modal-img-box').innerHTML = `<img src='ctbct.png'>`;
     }
-    // Play audio baixo ao mouseenter na galeria
     document.addEventListener('DOMContentLoaded',function(){
       goToSlide(0);
       var audio=document.getElementById('audioGallery');
