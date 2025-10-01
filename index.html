@@ -26,45 +26,43 @@
       transition:color 0.2s;
     }
     .menu a:hover { color: #26347d; }
-
-    .inicio {
-      display:flex;flex-direction:column;align-items:center;justify-content:center;
-      background:#ececec;padding:64px 20px 40px 20px;
-      min-height:70vh; margin-bottom:30px;
-      border-bottom:1px solid #dde1e7;
-    }
-    .inicio video { border-radius:10px; box-shadow:0 8px 26px -6px #2222; margin-bottom:32px; max-width:600px;width:100%; }
-    .inicio h1 { color:#222;font-size:2.1em;text-align:center;margin-bottom:16px; }
-    .inicio h3 { color:#555; }
-
     .footer {
-      display:flex;align-items:center;
-      background:#ececec; padding:18px 32px;
-      border-radius:0 0 8px 8px; margin-top:50px; font-size:15px; justify-content:space-between;
+      display:flex;align-items:center;background:#ececec;
+      padding:18px 32px;border-radius:0 0 8px 8px; margin-top:50px; 
+      font-size:15px; justify-content:space-between;
     }
-    .footer .footer-logos { display:flex;align-items:center;gap:16px; }
-    .footer img.footer-logo { height:34px;transition:filter 0.2s; }
+    .footer .footer-logos { display:flex;align-items:center;gap:22px; }
+    .footer img.footer-logo { height:40px;transition:filter 0.2s;}
     .footer img.footer-logo:hover { filter:brightness(1.3);}
     .footer div { font-size:0.95em; }
     .footer strong { font-weight:700;}
     .footer a { color:#252525; text-decoration: none; font-weight:600;}
-    @media (max-width: 680px) {
-      .header, .menu, .footer { padding: 8px 6px!important;}
-      .projeto-card, .white-box, .historico-content { max-width:99vw;padding:12px;}
-      .photo-gallery { grid-template-columns:repeat(auto-fit,minmax(90px,1fr)); }
-      .inicio { padding:24px 4vw 24px; }
+    /* Carrossel Fotos */
+    .carousel-container {position:relative;max-width:700px;margin:28px auto;}
+    .carousel-slide {display:none;}
+    .carousel-slide.active {display:flex;align-items:center;justify-content:center;}
+    .carousel-slide img {max-width:95vw;width:620px;height:420px;object-fit:cover;border-radius:12px;box-shadow:0 4px 22px -8px #2224;}
+    .carousel-controls {text-align:center;margin-top:12px;}
+    .carousel-controls button {
+      border:none;background:#e2e8f0;color:#26347d;font-size:2em;padding:6px 15px;margin:0 7px;border-radius:7px;cursor:pointer;
+      font-weight:700;transition:background 0.18s;
     }
+    .carousel-controls button:hover {background:#dde1e7;}
+    .carousel-thumbs {display:flex;justify-content:center;gap:7px;margin-top:10px;}
+    .carousel-thumbs img {width:50px;height:38px;border-radius:7px;border:2px solid #eee;cursor:pointer;object-fit:cover;}
+    .carousel-thumbs img.active { border-color:#26347d !important; }
+    .modal-bg {
+      display:none;position:fixed;z-index:999;top:0;left:0;width:100vw;height:100vh;background:rgba(51,51,51,0.93);
+      align-items:center;justify-content:center;
+    }
+    .modal-img-box {background:#222;border-radius:15px;padding:18px;}
+    .modal-img-box img { max-width:94vw;max-height:82vh; width:680px;height:480px;object-fit:cover; border-radius:12px;}
+    .modal-close {position:absolute;top:30px;right:48px;font-size:2.1em;color:#fff;cursor:pointer;}
+    @media (max-width:880px){ .carousel-slide img, .modal-img-box img {width:97vw;height:320px;} .modal-img-box img {height:278px;} }
+    @media (max-width:600px){ .carousel-slide img, .modal-img-box img {height:170px;} }
   </style>
 </head>
 <body>
-  <!-- PÁGINA INICIAL -->
-  <section class="inicio" id="inicio">
-      <h1>Bem-vindo ao Centro Esportivo de Camaçari</h1>
-      <video src="ctbctvideo.mp4" autoplay loop muted controls poster="ctb20.png"></video>
-      <h3>Uma iniciativa do Clube dos Tenistas da Bahia</h3>
-      <p>Transformando vidas com esporte, inclusão e bem-estar!</p>
-  </section>
-
   <!-- CABEÇALHO -->
   <div class="header">
     <img src="ctb20.png" alt="Logo CTB">
@@ -77,13 +75,67 @@
     <a href="#fotos">Fotos</a>
     <a href="#projeto">Projeto</a>
   </nav>
-  <!-- HISTÓRICO ... (restante do conteúdo HTML do projeto) -->
-
+  <!-- FOTOS COM CARROSSEL E ÁUDIO-->
+  <div id="fotos" class="page" style="max-width:900px;margin:36px auto;">
+    <div class="white-box">
+      <h2 class="projects-title">Galeria de Fotos</h2>
+      <audio id="audioDance" src="dance.mp3" autoplay loop preload="auto"></audio>
+      <div class="carousel-container">
+        <div class="carousel-slide active"><img src="ctb1.jpg" alt="CTB Foto 1" onclick="openModal(0)"></div>
+        <div class="carousel-slide"><img src="ctb2.jpg" alt="CTB Foto 2" onclick="openModal(1)"></div>
+        <div class="carousel-slide"><img src="ctb3.jpg" alt="CTB Foto 3" onclick="openModal(2)"></div>
+        <div class="carousel-slide"><img src="ctb4.jpg" alt="CTB Foto 4" onclick="openModal(3)"></div>
+        <div class="carousel-slide"><img src="ctb5.jpg" alt="CTB Foto 5" onclick="openModal(4)"></div>
+        <div class="carousel-slide"><img src="ctb6.jpg" alt="CTB Foto 6" onclick="openModal(5)"></div>
+        <div class="carousel-slide"><img src="ctb7.jpg" alt="CTB Foto 7" onclick="openModal(6)"></div>
+        <div class="carousel-slide"><img src="ctb8.jpg" alt="CTB Foto 8" onclick="openModal(7)"></div>
+        <div class="carousel-slide"><img src="ctb9.jpg" alt="CTB Foto 9" onclick="openModal(8)"></div>
+        <div class="carousel-slide"><img src="ctb10.jpg" alt="CTB Foto 10" onclick="openModal(9)"></div>
+        <div class="carousel-slide"><img src="ctb11.jpg" alt="CTB Foto 11" onclick="openModal(10)"></div>
+        <div class="carousel-slide"><img src="ctb12.jpg" alt="CTB Foto 12" onclick="openModal(11)"></div>
+        <div class="carousel-slide"><img src="ctb13.jpg" alt="CTB Foto 13" onclick="openModal(12)"></div>
+        <div class="carousel-slide"><img src="ctb14.jpg" alt="CTB Foto 14" onclick="openModal(13)"></div>
+        <div class="carousel-slide"><img src="ctb15.jpg" alt="CTB Foto 15" onclick="openModal(14)"></div>
+        <div class="carousel-slide"><img src="ctb16.jpg" alt="CTB Foto 16" onclick="openModal(15)"></div>
+        <div class="carousel-controls">
+          <button onclick="plusSlide(-1)">&#8592;</button>
+          <span id="slide-count">1/16</span>
+          <button onclick="plusSlide(1)">&#8594;</button>
+        </div>
+        <div class="carousel-thumbs">
+          <img src="ctb1.jpg" onclick="goToSlide(0)" id="thumb0" class="active">
+          <img src="ctb2.jpg" onclick="goToSlide(1)" id="thumb1">
+          <img src="ctb3.jpg" onclick="goToSlide(2)" id="thumb2">
+          <img src="ctb4.jpg" onclick="goToSlide(3)" id="thumb3">
+          <img src="ctb5.jpg" onclick="goToSlide(4)" id="thumb4">
+          <img src="ctb6.jpg" onclick="goToSlide(5)" id="thumb5">
+          <img src="ctb7.jpg" onclick="goToSlide(6)" id="thumb6">
+          <img src="ctb8.jpg" onclick="goToSlide(7)" id="thumb7">
+          <img src="ctb9.jpg" onclick="goToSlide(8)" id="thumb8">
+          <img src="ctb10.jpg" onclick="goToSlide(9)" id="thumb9">
+          <img src="ctb11.jpg" onclick="goToSlide(10)" id="thumb10">
+          <img src="ctb12.jpg" onclick="goToSlide(11)" id="thumb11">
+          <img src="ctb13.jpg" onclick="goToSlide(12)" id="thumb12">
+          <img src="ctb14.jpg" onclick="goToSlide(13)" id="thumb13">
+          <img src="ctb15.jpg" onclick="goToSlide(14)" id="thumb14">
+          <img src="ctb16.jpg" onclick="goToSlide(15)" id="thumb15">
+        </div>
+      </div>
+      <div class="modal-bg" id="modal-bg" onclick="closeModal()">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-img-box" id="modal-img-box"></div>
+      </div>
+    </div>
+  </div>
   <!-- RODAPÉ -->
   <footer class="footer">
     <div class="footer-logos">
-      <a href="https://ctb-ba.com.br" target="_blank"><img src="logo-black.jpg" alt="CTB Black" class="footer-logo"></a>
-      <a href="https://www.linkedin.com/in/paulocarneiropfeira/" target="_blank"><img src="ctblinkedin.png" alt="CTB Linkedin" class="footer-logo"></a>
+      <a href="https://ctb-ba.com.br" target="_blank">
+        <img src="ctbblack.png" alt="CTB Black" class="footer-logo">
+      </a>
+      <a href="https://www.linkedin.com/in/paulocarneiropfeira/" target="_blank">
+        <img src="ctblinkedin.png" alt="Linkedin Paulo Carneiro" class="footer-logo">
+      </a>
     </div>
     <div>
       <strong>Clube dos Tenistas da Bahia</strong><br>
@@ -95,5 +147,34 @@
       <span>71-98530-4903</span>
     </div>
   </footer>
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const thumbs = document.querySelectorAll('.carousel-thumbs img');
+    function showSlide(n) {
+      slideIndex = (n + slides.length) % slides.length;
+      slides.forEach((sl,i)=> sl.classList.toggle('active', i===slideIndex));
+      thumbs.forEach((th,i)=> th.classList.toggle('active',i===slideIndex));
+      document.getElementById('slide-count').innerText = (slideIndex+1) + "/" + slides.length;
+    }
+    function plusSlide(n) { showSlide(slideIndex+n); }
+    function goToSlide(n) { showSlide(n); }
+    showSlide(0);
+    function openModal(idx) {
+      var src = slides[idx].querySelector('img').src;
+      document.getElementById('modal-bg').style.display = 'flex';
+      document.getElementById('modal-img-box').innerHTML = `<img src=\"${src}\">`;
+    }
+    function closeModal() {
+      document.getElementById('modal-bg').style.display = 'none';
+      document.getElementById('modal-img-box').innerHTML = '';
+    }
+    document.addEventListener('DOMContentLoaded',function(){
+      var audio=document.getElementById('audioDance');
+      audio.volume=0.14;
+      document.querySelector('#fotos').addEventListener('mouseenter',()=>{if(audio.paused) audio.play();});
+      document.querySelector('#fotos').addEventListener('touchstart',()=>{if(audio.paused) audio.play();});
+    });
+  </script>
 </body>
 </html>
