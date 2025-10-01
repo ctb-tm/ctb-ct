@@ -26,10 +26,33 @@
       transition:color 0.2s;
     }
     .menu a:hover { color: #26347d; }
+    section, .page { margin-bottom:28px;}
+    .white-box, .historico-content { background:#ececec;border-radius:8px;box-shadow:0 2px 6px -2px rgba(0,0,0,0.06);border:1px solid #e2e8f0; padding:30px 30px 22px;}
+    /* Logomarca centralizada */
+    .logo-page-box {
+      background: #f8f9fa;
+      border-radius: 12px;
+      max-width: 700px;
+      margin:48px auto 38px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow:0 3px 10px -6px rgba(0,0,0,0.08);
+      border:1px solid #ececec;
+      padding:50px 18px;
+    }
+    .logo-page-box img {
+      width:320px; max-width:95vw; margin-bottom:22px;
+      border-radius:12px;
+      box-shadow:0 2px 24px -8px #1114;
+      background:#ececec;
+    }
+    .logo-page-box h2 {
+      font-size:2em; color:#40434c; font-weight:700; margin-top:0;
+    }
     .footer {
-      display:flex;align-items:center;background:#ececec;
-      padding:18px 32px;border-radius:0 0 8px 8px; margin-top:50px; 
-      font-size:15px; justify-content:space-between;
+      display:flex;align-items:center;background:#ececec;padding:18px 32px;border-radius:0 0 8px 8px; margin-top:50px; font-size:15px; justify-content:space-between;
     }
     .footer .footer-logos { display:flex;align-items:center;gap:22px; }
     .footer img.footer-logo { height:40px;transition:filter 0.2s;}
@@ -37,29 +60,12 @@
     .footer div { font-size:0.95em; }
     .footer strong { font-weight:700;}
     .footer a { color:#252525; text-decoration: none; font-weight:600;}
-    /* Carrossel Fotos */
-    .carousel-container {position:relative;max-width:700px;margin:28px auto;}
-    .carousel-slide {display:none;}
-    .carousel-slide.active {display:flex;align-items:center;justify-content:center;}
-    .carousel-slide img {max-width:95vw;width:620px;height:420px;object-fit:cover;border-radius:12px;box-shadow:0 4px 22px -8px #2224;}
-    .carousel-controls {text-align:center;margin-top:12px;}
-    .carousel-controls button {
-      border:none;background:#e2e8f0;color:#26347d;font-size:2em;padding:6px 15px;margin:0 7px;border-radius:7px;cursor:pointer;
-      font-weight:700;transition:background 0.18s;
+    @media (max-width: 680px) {
+      .header, .menu, .footer { padding: 8px 6px!important;}
+      .white-box, .historico-content, .logo-page-box { max-width:99vw;padding:12px;}
+      .footer img.footer-logo{height:32px;}
+      .logo-page-box img{width:98vw;}
     }
-    .carousel-controls button:hover {background:#dde1e7;}
-    .carousel-thumbs {display:flex;justify-content:center;gap:7px;margin-top:10px;}
-    .carousel-thumbs img {width:50px;height:38px;border-radius:7px;border:2px solid #eee;cursor:pointer;object-fit:cover;}
-    .carousel-thumbs img.active { border-color:#26347d !important; }
-    .modal-bg {
-      display:none;position:fixed;z-index:999;top:0;left:0;width:100vw;height:100vh;background:rgba(51,51,51,0.93);
-      align-items:center;justify-content:center;
-    }
-    .modal-img-box {background:#222;border-radius:15px;padding:18px;}
-    .modal-img-box img { max-width:94vw;max-height:82vh; width:680px;height:480px;object-fit:cover; border-radius:12px;}
-    .modal-close {position:absolute;top:30px;right:48px;font-size:2.1em;color:#fff;cursor:pointer;}
-    @media (max-width:880px){ .carousel-slide img, .modal-img-box img {width:97vw;height:320px;} .modal-img-box img {height:278px;} }
-    @media (max-width:600px){ .carousel-slide img, .modal-img-box img {height:170px;} }
   </style>
 </head>
 <body>
@@ -67,15 +73,43 @@
   <div class="header">
     <img src="ctb20.png" alt="Logo CTB">
     <h1>Centro Esportivo de Camaçari - Tênis de Mesa</h1>
-    <img src="ctbct.png" alt="Logo CTB CT">
+    <img src="byd-logo-png_seeklogo-546145.jpg" alt="Logo BYD">
   </div>
   <!-- MENU -->
   <nav class="menu">
-    <a href="#historico">Histórico CTB</a>
+    <a href="#inicio">Apresentação</a>
+    <a href="#historico">Histórico</a>
     <a href="#fotos">Fotos</a>
     <a href="#projeto">Projeto</a>
+    <a href="#logomarca">Logomarca</a>
   </nav>
-  <!-- FOTOS COM CARROSSEL E ÁUDIO-->
+  <!-- APRESENTAÇÃO -->
+  <section id="inicio" class="white-box" style="margin-top:24px;">
+    <h2>Bem-vindo ao Centro Esportivo CTB em Camaçari</h2>
+    <p>Transformando esportes em inclusão e saúde! O projeto EcoMesa Wellness Hubs promove tênis de mesa, impacto social e sustentabilidade para crianças, adolescentes, adultos e idosos da comunidade.</p>
+    <video src="ctbctvideo.mp4" autoplay muted loop controls poster="ctb20.png" style="border-radius:18px;box-shadow:0 8px 22px -10px #2322;max-width:480px;width:94vw;display:block;margin:26px auto 0 auto;"></video>
+  </section>
+  <!-- HISTÓRICO -->
+  <div id="historico" class="page" style="max-width:800px;margin:32px auto;">
+    <div class="historico-content">
+      <h2>Histórico e Atuação do CTB: Esporte, Inclusão e Desenvolvimento na Bahia</h2>
+      <h3>Fundação e Missão</h3>
+      <p>Fundado em Salvador, o <strong>Clube dos Tenistas da Bahia (CTB)</strong> nasceu da paixão pelo esporte e da crença em seu poder de transformação social. Desde o início, sua missão foi clara: democratizar o acesso ao tênis e ao tênis de mesa, utilizando essas modalidades como ferramentas para a educação, inclusão e desenvolvimento de crianças e jovens em todo o estado.</p>
+      <h3>Principais Pilares de Atuação</h3>
+      <ul>
+        <li><strong>Inclusão Social:</strong> Levar o esporte a comunidades e grupos vulneráveis, oferecendo uma alternativa saudável de lazer e desenvolvimento pessoal, e promovendo valores como disciplina, respeito e trabalho em equipe.</li>
+        <li><strong>Educação através do Esporte:</strong> Integrar a prática esportiva ao ambiente escolar, como nos projetos "Educar com Tênis de Mesa", reforçando o aprendizado e combatendo a evasão escolar.</li>
+        <li><strong>Fomento ao Esporte:</strong> Utilizar a Lei de Incentivo ao Esporte como principal ferramenta para viabilizar projetos, captar recursos e criar uma estrutura sustentável para o crescimento das modalidades na Bahia.</li>
+      </ul>
+      <h3>Visão Estratégica</h3>
+      <div class="visao-estrategica" style="background:#ececec;padding:14px 18px;border-radius:5px;">
+        <p><strong>"Ser uma entidade de referência nacional na gestão de projetos esportivos inclusivos, reconhecida pela excelência, transparência e pelo impacto social positivo gerado na vida dos participantes e em suas comunidades, transformando a Bahia em um celeiro de talentos e cidadãos."</strong></p>
+      </div>
+      <h3>Legado e Futuro</h3>
+      <p>Ao longo de sua trajetória, o CTB já impactou a vida de centenas de jovens, consolidando projetos de sucesso e construindo uma forte rede de parceiros. O foco para o futuro é expandir ainda mais o alcance de suas ações, implementando novas tecnologias e metodologias para continuar a transformar vidas através da força do esporte.</p>
+    </div>
+  </div>
+  <!-- FOTOS -->
   <div id="fotos" class="page" style="max-width:900px;margin:36px auto;">
     <div class="white-box">
       <h2 class="projects-title">Galeria de Fotos</h2>
@@ -126,6 +160,13 @@
         <div class="modal-img-box" id="modal-img-box"></div>
       </div>
     </div>
+  </div>
+  <!-- PROJETO ... (seu card de projeto e tabelas aqui) -->
+  <!-- LOGOMARCA CENTRALIZADA -->
+  <div id="logomarca" class="logo-page-box">
+    <img src="ctbct.png" alt="Logomarca CTB Estilo Centralizado">
+    <h2>Clube dos Tenistas da Bahia</h2>
+    <p style="font-size:1.14em;text-align:center;max-width:430px;margin:auto;">Símbolo de integração, desenvolvimento e saúde para todos em Camaçari</p>
   </div>
   <!-- RODAPÉ -->
   <footer class="footer">
