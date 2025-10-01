@@ -122,25 +122,25 @@
     <div class="carousel-lateral-area">
       <div class="carousel-lateral-thumbbar" id="thumbbar">
         <!-- 16 thumbs -->
-        <img src="ctb1.jpg" class="active" onclick="goToSlide(0)">
-        <img src="ctb2.jpg" onclick="goToSlide(1)">
-        <img src="ctb3.jpg" onclick="goToSlide(2)">
-        <img src="ctb4.jpg" onclick="goToSlide(3)">
-        <img src="ctb5.jpg" onclick="goToSlide(4)">
-        <img src="ctb6.jpg" onclick="goToSlide(5)">
-        <img src="ctb7.jpg" onclick="goToSlide(6)">
-        <img src="ctb8.jpg" onclick="goToSlide(7)">
-        <img src="ctb9.jpg" onclick="goToSlide(8)">
-        <img src="ctb10.jpg" onclick="goToSlide(9)">
-        <img src="ctb11.jpg" onclick="goToSlide(10)">
-        <img src="ctb12.jpg" onclick="goToSlide(11)">
-        <img src="ctb13.jpg" onclick="goToSlide(12)">
-        <img src="ctb14.jpg" onclick="goToSlide(13)">
-        <img src="ctb15.jpg" onclick="goToSlide(14)">
-        <img src="ctb16.jpg" onclick="goToSlide(15)">
+        <img src="ctbct1.jpg" class="active" onclick="goToSlide(0)">
+        <img src="ctbct2.jpg" onclick="goToSlide(1)">
+        <img src="ctbct3.jpg" onclick="goToSlide(2)">
+        <img src="ctbct4.jpg" onclick="goToSlide(3)">
+        <img src="ctbct5.jpg" onclick="goToSlide(4)">
+        <img src="ctbct6.jpg" onclick="goToSlide(5)">
+        <img src="ctbct7.jpg" onclick="goToSlide(6)">
+        <img src="ctbct8.jpg" onclick="goToSlide(7)">
+        <img src="ctbct9.jpg" onclick="goToSlide(8)">
+        <img src="ctbct10.jpg" onclick="goToSlide(9)">
+        <img src="ctbct11.jpg" onclick="goToSlide(10)">
+        <img src="ctbct12.jpg" onclick="goToSlide(11)">
+        <img src="ctbct13.jpg" onclick="goToSlide(12)">
+        <img src="ctbct14.jpg" onclick="goToSlide(13)">
+        <img src="ctbct15.jpg" onclick="goToSlide(14)">
+        <img src="ctbct16.jpg" onclick="goToSlide(15)">
       </div>
       <div class="carousel-lateral-img">
-        <img id="mainPhoto" src="ctb1.jpg" class="carousel-lateral-mainimg" onclick="maximizeImg(currentIdx)">
+        <img id="mainPhoto" src="ctbct1.jpg" class="carousel-lateral-mainimg" onclick="maximizeImg(currentIdx)">
         <div class="carousel-lateral-controls">
           <button onclick="plusSlide(-1)">&#8592;</button>
           <span id="slide-count">1/16</span>
@@ -189,14 +189,13 @@
     // Carrossel lateral
     let currentIdx = 0;
     const imgList = [
-      'ctb1.jpg','ctb2.jpg','ctb3.jpg','ctb4.jpg','ctb5.jpg','ctb6.jpg','ctb7.jpg','ctb8.jpg',
-      'ctb9.jpg','ctb10.jpg','ctb11.jpg','ctb12.jpg','ctb13.jpg','ctb14.jpg','ctb15.jpg','ctb16.jpg'
+      'ctbct1.jpg','ctbct2.jpg','ctbct3.jpg','ctbct4.jpg','ctbct5.jpg','ctbct6.jpg','ctbct7.jpg','ctbct8.jpg',
+      'ctbct9.jpg','ctbct10.jpg','ctbct11.jpg','ctbct12.jpg','ctbct13.jpg','ctbct14.jpg','ctbct15.jpg','ctbct16.jpg'
     ];
     const thumbbar = document.getElementById('thumbbar');
     const thumbs = thumbbar.getElementsByTagName('img');
     const mainPhoto = document.getElementById('mainPhoto');
     const slideCount = document.getElementById('slide-count');
-
     function goToSlide(idx){
       idx = (idx+imgList.length)%imgList.length;
       currentIdx = idx;
@@ -205,9 +204,7 @@
       for(let i=0;i<thumbs.length;i++) thumbs[i].classList.remove('active');
       thumbs[idx].classList.add('active');
     }
-    function plusSlide(n){
-      goToSlide(currentIdx+n);
-    }
+    function plusSlide(n){ goToSlide(currentIdx+n); }
     mainPhoto.onclick = function(){ maximizeImg(currentIdx); }
     function maximizeImg(idx){
       document.getElementById('modal-bg').style.display = 'flex';
